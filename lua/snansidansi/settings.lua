@@ -16,8 +16,6 @@ vim.opt.undofile = true
 vim.opt.scrolloff = 12
 vim.opt.signcolumn = "yes"
 
-vim.cmd("language en_US")
-
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
