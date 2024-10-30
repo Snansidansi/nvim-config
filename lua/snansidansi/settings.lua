@@ -2,10 +2,10 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.breakindent = true
 
 vim.opt.relativenumber = true
-
-vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
@@ -14,6 +14,7 @@ vim.opt.backup = false
 vim.opt.undofile = true
 
 vim.opt.scrolloff = 12
+vim.opt.sidescrolloff = 5
 vim.opt.signcolumn = "yes"
 
 vim.opt.hlsearch = false
@@ -23,4 +24,6 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
-vim.g.mapleader = ' '
+vim.opt.statusline = '%{FugitiveStatusline()}'
+
+vim.opt.termguicolors = true

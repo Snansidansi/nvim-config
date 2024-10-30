@@ -3,7 +3,15 @@ return {
         "williamboman/mason.nvim",
 
         config = function()
-            require("mason").setup()
+            require("mason").setup({
+                ui = {
+                    icons = {
+                        package_installed = "+",
+                        package_pending = "~",
+                        package_uninstalled = "x"
+                    }
+                }
+            })
         end
     },
     {
@@ -15,6 +23,8 @@ return {
                     "lua_ls",
                     "clangd",
                     "pyright",
+                    "gopls",
+                    "jdtls",
                 }
             })
         end
@@ -23,7 +33,6 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({
                 capabilities = capabilities
@@ -34,16 +43,19 @@ return {
             lspconfig.pyright.setup({
                 capabilities = capabilities
             })
-
-            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-                vim.lsp.handlers.hover, {
-                    max_width = math.floor(vim.api.nvim_win_get_width(0) * 0.4)
-                }
-            )
+            lspconfig.gopls.setup({
+                capabilities = capabilities
+            })
+            lspconfig.jdtls.setup({
+                capabilities = capabilities
+            })
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', "gd", vim.lsp.buf.definition, {})
             vim.keymap.set({ 'n', 'v' }, "<leader>ca", vim.lsp.buf.code_action, {})
+            vim.keymap.set('n', "<leader>r", vim.lsp.buf.rename, {})
+            vim.keymap.set('n', "R", vim.lsp.buf.references, {})
+            vim.keymap.set('n', "<leader>d", vim.diagnostic.setqflist, {})
         end
     }
 }
