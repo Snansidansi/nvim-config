@@ -30,12 +30,14 @@ return {
                 },
                 mapping = cmp.mapping.preset.insert({
                     ['<tab>'] = cmp.mapping.confirm({ select = true }),
+                    ["<C-Space>"] = cmp.mapping.complete(),
+                    ["<CR>"] = cmp.mapping.abort(),
                 }),
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
-                }, {
-                        { name = 'buffer' },
+                    { name = 'buffer' },
+                    { name = 'path' },
                 })
             })
         end

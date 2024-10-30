@@ -27,3 +27,5 @@ vim.opt.colorcolumn = "80"
 vim.opt.statusline = '%{FugitiveStatusline()}'
 
 vim.opt.termguicolors = true
+
+vim.g.netrw_liststyle = 3

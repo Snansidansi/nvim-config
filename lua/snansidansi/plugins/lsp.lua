@@ -54,8 +54,9 @@ return {
             vim.keymap.set('n', "gd", vim.lsp.buf.definition, {})
             vim.keymap.set({ 'n', 'v' }, "<leader>ca", vim.lsp.buf.code_action, {})
             vim.keymap.set('n', "<leader>r", vim.lsp.buf.rename, {})
-            vim.keymap.set('n', "R", vim.lsp.buf.references, {})
-            vim.keymap.set('n', "<leader>d", vim.diagnostic.setqflist, {})
+            vim.keymap.set('n', "<leader>cd", vim.diagnostic.setqflist, {})
+            vim.keymap.set('n', "<leader>cr", vim.lsp.buf.references, {})
+            vim.keymap.set('n', "<leader>ci", vim.lsp.buf.implementation, {})
         end
     }
 }
