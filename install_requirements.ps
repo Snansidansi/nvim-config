@@ -1,0 +1,99 @@
+declare -A requirements=(
+    ["ripgrep"]="rg"
+    ["python3"]=
+    ["npm"]=
+    ["nvim"]=
+    ["git"]=
+)
+
+get_install_name () {
+    install_name=$1
+    if [[ -n ${requirements[$1]} ]]; then
+        install_name=${requirements[$1]}
+    fi
+}
+
+print_sep () {
+    for i in $(seq $(tput cols)); do
+        printf "_"
+    done
+}
+
+installed=()
+updateable=()
+missing=()
+
+#Check for installed and missing packages
+for package in ${!requirements[@]}; do
+    get_install_name $package
+
+    if command -v $install_name &> /dev/null; then
+        installed+=($package)
+    else
+        missing+=($package)
+    fi
+done
+
+#Check for updateable packages
+if command -v apt &> /dev/null; then
+    sudo apt update
+    upgradable="$(apt list --upgradable)"
+
+    for package in ${installed[@]}; do
+        get_install_name $package
+        grep_result="$(grep $install_name <<< $upgradable)"
+
+        if [[ $grep_result != "" ]]; then
+            updateable+=($install_name)
+        fi
+    done
+else
+    echo "Cannot search for upgrades because apt is not installed."
+fi
+
+#Print results
+print_sep
+
+if [[ -n ${installed[@]} ]]; then
+    echo ""
+    echo "Installed:"
+    for name in ${installed[@]}; do
+        echo "+ $name"
+    done
+fi
+
+if [[ -n ${updateable[@]} ]]; then
+    echo ""
+    echo "Updateable (or subpackages):"
+    for name in ${updateable[@]}; do
+        echo "~ $name"
+    done
+fi
+
+if [[ -n ${missing[@]} ]]; then
+    echo ""
+    echo "Missing:"
+    for name in ${missing[@]}; do
+        echo "x $name"
+    done
+fi
+
+#Install missing packages
+print_sep
+if command -v apt &> /dev/null; then
+    if [[ -n ${missing[@]} ]]; then
+        read -p "Install missing packages [y/n]: " install_choice
+        if [[ $install_choice = "y" ]]; then
+            for package in ${missing[@]}; do
+                get_install_name $package
+                sudo apt install $install_name
+            done
+        fi
+    else
+        echo "No missing packages to install."
+        echo "You still may require to download dev tool for specific programming languages like the Java SDK."
+    fi
+else
+    echo "Cannot install missing packages because apt is not installed."
+fi
+
