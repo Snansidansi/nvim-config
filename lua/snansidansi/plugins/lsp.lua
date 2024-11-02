@@ -58,5 +58,12 @@ return {
             vim.keymap.set('n', "<leader>cr", vim.lsp.buf.references, {})
             vim.keymap.set('n', "<leader>ci", vim.lsp.buf.implementation, {})
         end
-    }
+    },
+    {
+        "mfussenegger/nvim-jdtls",
+
+        dependencies = {
+            "mfussenegger/nvim-dap",
+        }
+    },
 }
