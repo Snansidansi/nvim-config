@@ -9,7 +9,8 @@ return {
                         package_installed = "+",
                         package_pending = "~",
                         package_uninstalled = "x"
-                    }
+                    },
+                    border = "rounded"
                 }
             })
         end
@@ -44,9 +45,6 @@ return {
                 capabilities = capabilities
             })
             lspconfig.gopls.setup({
-                capabilities = capabilities
-            })
-            lspconfig.jdtls.setup({
                 capabilities = capabilities
             })
 

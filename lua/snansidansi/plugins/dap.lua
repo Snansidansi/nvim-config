@@ -3,7 +3,7 @@ return {
         "mfussenegger/nvim-dap",
 
         dependencies = {
-            "mfussenegger/nvim-dap-ui",
+            "rcarriga/nvim-dap-ui",
             "nvim-neotest/nvim-nio",
         },
 
@@ -17,21 +17,34 @@ return {
             dap.listeners.before.attach.dapui_config = function()
                 dapui.open()
             end
-            dap.listeners.before.event_terminated["dapui_config"]=function()
-                pcall(function() dapui.close() end)
+            dap.listeners.before.launch.dapui_config = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated.dapui_config = function()
+                dapui.close()
+            end
+            dap.listeners.before.event_exited.dapui_config = function()
+                dapui.close()
             end
 
             -- Keymaps
             vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint)
-            vim.keymap.set("n", "<leader>dc", dap.continue)
+            vim.keymap.set("n", "<leader>ds", dap.continue)
             vim.keymap.set("n", "<leader>di", dap.step_into)
             vim.keymap.set("n", "<leader>do", dap.step_over)
             vim.keymap.set("n", "<leader>dO", dap.step_out)
-            vim.keymap.set("n", "<leader>dC", function()
+            vim.keymap.set("n", "<leader>dc", function()
                 dap.disconnect({ terminateDebuggee = true })
             end)
 
             vim.keymap.set({ "n", "v" }, "<leader>dh", function() dapui.eval() end)
+            vim.keymap.set("n", "<leader>dw", function()
+                local expr = vim.fn.input("New watch expression: ")
+                if expr ~= "" then
+                    dapui.elements.watches.add(expr)
+                end
+            end)
+            vim.keymap.set("n", "<leader>dC", function() dapui.close() end)
         end,
     },
     {

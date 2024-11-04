@@ -4,7 +4,7 @@ return {
     config = function()
         require("lualine").setup({
             options = {
-                icons_enabled = true,
+                icons_enabled = false,
                 theme = "ayu_mirage",
                 refresh = {
                     statusline = 1000
