@@ -37,14 +37,15 @@ return {
                 dap.disconnect({ terminateDebuggee = true })
             end)
 
+            -- dapui keymaps
             vim.keymap.set({ "n", "v" }, "<leader>dh", function() dapui.eval() end)
+            vim.keymap.set("n", "<leader>dC", function() dapui.close() end)
             vim.keymap.set("n", "<leader>dw", function()
                 local expr = vim.fn.input("New watch expression: ")
                 if expr ~= "" then
                     dapui.elements.watches.add(expr)
                 end
             end)
-            vim.keymap.set("n", "<leader>dC", function() dapui.close() end)
         end,
     },
     {
