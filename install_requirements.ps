@@ -4,14 +4,8 @@ declare -A requirements=(
     ["npm"]=
     ["neovim"]="nvim"
     ["git"]=
+    ["gcc"]=
 )
-
-get_install_name () {
-    install_name=$1
-    if [[ -n ${requirements[$1]} ]]; then
-        install_name=${requirements[$1]}
-    fi
-}
 
 print_sep () {
     for i in $(seq $(tput cols)); do
@@ -25,9 +19,12 @@ missing=()
 
 #Check for installed and missing packages
 for package in ${!requirements[@]}; do
-    get_install_name $package
+    package_command=$package
+    if [[ -n ${requirements[$package]} ]]; then
+        package_command=${requirements[$package]}
+    fi
 
-    if command -v $install_name &> /dev/null; then
+    if command -v $package_command &> /dev/null; then
         installed+=($package)
     else
         missing+=($package)
@@ -40,11 +37,10 @@ if command -v apt &> /dev/null; then
     upgradable="$(apt list --upgradable)"
 
     for package in ${installed[@]}; do
-        get_install_name $package
-        grep_result="$(grep $install_name <<< $upgradable)"
+        grep_result="$(grep $package <<< $upgradable)"
 
         if [[ $grep_result != "" ]]; then
-            updateable+=($install_name)
+            updateable+=($package)
         fi
     done
 else
@@ -68,6 +64,8 @@ if [[ -n ${updateable[@]} ]]; then
     for name in ${updateable[@]}; do
         echo "~ $name"
     done
+
+
 fi
 
 if [[ -n ${missing[@]} ]]; then
@@ -76,6 +74,7 @@ if [[ -n ${missing[@]} ]]; then
     for name in ${missing[@]}; do
         echo "x $name"
     done
+    echo "--> Run \"apt list --upgradable\" for more details"
 fi
 
 #Install missing packages
@@ -85,8 +84,7 @@ if command -v apt &> /dev/null; then
         read -p "Install missing packages [y/n]: " install_choice
         if [[ $install_choice = "y" ]]; then
             for package in ${missing[@]}; do
-                get_install_name $package
-                sudo apt install $install_name
+                sudo apt install $package
             done
         fi
     else
