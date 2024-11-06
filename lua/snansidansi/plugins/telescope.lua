@@ -13,7 +13,7 @@ return {
 							width = 0.85,
 							height = 0.95,
 							prompt_position = "bottom",
-							preview_height = 0.4,
+							preview_height = 0.5,
 							preview_cutoff = 0,
 						},
 					},
