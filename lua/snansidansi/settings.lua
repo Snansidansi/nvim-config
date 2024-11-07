@@ -6,6 +6,7 @@ vim.opt.smartindent = true
 vim.opt.breakindent = true
 
 vim.opt.relativenumber = true
+vim.opt.nu = true
 
 vim.opt.wrap = false
 
