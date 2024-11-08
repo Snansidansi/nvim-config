@@ -56,7 +56,6 @@ local function java_keymaps()
 	vim.cmd("command! -buffer JdtJshell lua require('jdtls').jshell()")
 
 	-- Keymaps:
-	vim.keymap.set("n", "<leader>Jo", "<Cmd> lua require('jdtls').organize_imports()<CR>")
 	vim.keymap.set("n", "<leader>Jv", "<Cmd> lua require('jdtls').extract_variable()<CR>")
 	vim.keymap.set("n", "<leader>Jv", "<Cmd> lua require('jdtls').extract_methode()<CR>")
 	vim.keymap.set("n", "<leader>Jt", "<Cmd> lua require('jdtls').test_nearest_method()<CR>")
