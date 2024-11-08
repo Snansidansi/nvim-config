@@ -64,8 +64,7 @@ if [[ -n ${updateable[@]} ]]; then
     for name in ${updateable[@]}; do
         echo "~ $name"
     done
-
-
+    echo "--> Run \"apt list --upgradable\" for more details"
 fi
 
 if [[ -n ${missing[@]} ]]; then
@@ -74,7 +73,6 @@ if [[ -n ${missing[@]} ]]; then
     for name in ${missing[@]}; do
         echo "x $name"
     done
-    echo "--> Run \"apt list --upgradable\" for more details"
 fi
 
 #Install missing packages
