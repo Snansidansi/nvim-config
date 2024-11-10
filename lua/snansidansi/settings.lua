@@ -8,7 +8,8 @@ vim.opt.breakindent = true
 vim.opt.relativenumber = true
 vim.opt.nu = true
 
-vim.opt.wrap = false
+vim.opt.wrap = true
+vim.opt.linebreak = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -28,5 +29,3 @@ vim.opt.colorcolumn = "80"
 vim.opt.statusline = "%{FugitiveStatusline()}"
 
 vim.opt.termguicolors = true
-
-vim.g.netrw_liststyle = 3
