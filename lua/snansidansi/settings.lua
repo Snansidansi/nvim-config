@@ -8,7 +8,7 @@ vim.opt.breakindent = true
 vim.opt.relativenumber = true
 vim.opt.nu = true
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.linebreak = true
 
 vim.opt.swapfile = false
