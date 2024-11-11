@@ -27,3 +27,6 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l")
 vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j")
+
+vim.keymap.set("n", "<leader>bw", "<cmd>setlocal wrap<CR>")
+vim.keymap.set("n", "<leader>bW", "<cmd>setlocal nowrap<CR>")
