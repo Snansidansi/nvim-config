@@ -28,5 +28,6 @@ return {
 		vim.keymap.set("n", "<leader>hp", gitsigns.preview_hunk)
 		vim.keymap.set("n", "<leader>hr", gitsigns.reset_hunk)
 		vim.keymap.set("n", "<leader>hq", gitsigns.setqflist)
+		vim.keymap.set("n", "<leader>hb", gitsigns.blame_line)
 	end,
 }
