@@ -96,6 +96,12 @@ local function setup_jdtls()
 		capabilities[k] = v
 	end
 
+	-- Get the default extended client capabilities of the JDTLS language server
+	local extendedClientCapabilities = jdtls.extendedClientCapabilities
+	-- Modify one propertie called resolveAdditionalTextEditSupport and set it to true
+	extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+	extendedClientCapabilities.classFileContentsSupport = true
+
 	-- Set the command that starts the JDTLS language server jar
 	local cmd = {
 		"java",
@@ -141,10 +147,7 @@ local function setup_jdtls()
 			},
 			-- Enable method signature help
 			signatureHelp = {
-				java = {
-					enabled = true,
-					description = { enabled = true },
-				},
+				enabled = true,
 			},
 			-- Use the fernflower decompiler when using the javap command to decompile byte code back to java code
 			contentProvider = {
@@ -221,10 +224,7 @@ local function setup_jdtls()
 	-- Create a table called init_options to pass the bundles with debug and testing jar, along with the extended client capablies to the start or attach function of JDTLS
 	local init_options = {
 		bundles = bundles,
-
-		extendedClientCapabilities = {
-			classFileContentsSupport = true,
-		},
+		extendedClientCapabilities = extendedClientCapabilities,
 	}
 
 	-- Function that will be ran once the language server is attached
