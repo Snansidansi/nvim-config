@@ -1,3 +1,7 @@
+local function feedkeys(key, mode)
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, false)
+end
+
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
@@ -17,6 +21,13 @@ vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 
 vim.keymap.set("n", "<leader>t", ':sp<CR><C-w>j:term<CR>:exe "resize " . (&lines / 4)<CR>i')
+
+vim.keymap.set("n", "<leader>T", function()
+	local bufferDir = vim.fn.expand("%:p:h")
+	feedkeys("<leader>t", "t")
+	feedkeys("cd " .. bufferDir .. "<CR>", "n")
+	feedkeys("clear<CR>", "n")
+end)
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
 vim.keymap.set("t", "<C-c>", "<C-\\><C-N>:q<CR>")
 
