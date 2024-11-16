@@ -16,7 +16,7 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 vim.keymap.set("n", "<leader>d", '"_d')
 vim.keymap.set("v", "<leader>d", '"_d')
 
-vim.keymap.set("v", "<leader>y", ':w !clip.exe<CR><CR>')
+vim.keymap.set("v", "<leader>y", ':w !xclip -selection clipboard<CR><CR>')
 
 vim.keymap.set("n", "<leader>t", ':sp<CR><C-w>j:term<CR>:exe "resize " . (&lines / 4)<CR>i')
 vim.keymap.set("n", "<leader>T", function()
