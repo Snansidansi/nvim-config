@@ -3,7 +3,7 @@ set -e
 
 # Settings vars
 BASHRC_PATH="$HOME/.bashrc"
-CONFIG_STRING="export PATH='\$PATH:/opt/nvim-linux64/bin'"
+CONFIG_STRING="export PATH=\$PATH:/opt/nvim-linux64/bin"
 SDKMAN_IDENTIFIER="#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!"
 
 
