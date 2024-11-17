@@ -8,9 +8,6 @@ declare -A requirements=(
     ["curl"]=
 )
 
-# Exit immediately if a error occurs
-set -e
-
 # Print line separators
 print_sep () {
     for i in $(seq $(tput cols)); do
@@ -18,15 +15,6 @@ print_sep () {
     done
 }
 
-
-# Install nvim if it does not exist
-if command -v nvim &> /dev/null; then
-    echo "Installing nvim for linux"
-    
-fi
-
-
-# Check and install requirements for nvim
 installed=()
 updateable=()
 missing=()
