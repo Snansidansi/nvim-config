@@ -32,6 +32,9 @@ return {
 			vim.keymap.set("n", "<leader>gf", function()
 				builtin.git_files({ layout_strategy = "vertical" })
 			end)
+			vim.keymap.set("n", "<leader>lf", function()
+				builtin.resume({ layout_strategy = "vertical" })
+			end)
 		end,
 	},
 	{
