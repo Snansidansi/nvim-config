@@ -236,15 +236,6 @@ local function setup_jdtls()
 		-- Code lens enables features such as code refrence counts, implemetation counts and more.
 		vim.lsp.codelens.refresh()
 
-		require("lsp_signature").on_attach({
-			bind = true,
-			padding = "",
-			handler_opts = {
-				border = "rounded",
-			},
-			hint_prefix = ">> ",
-		}, bufnr)
-
 		-- Setup a function that automatically runs every time a java files is saved to refesh the code lens
 		vim.api.nvim_create_autocmd("BufWritePost", {
 			pattern = { "*.java" },
