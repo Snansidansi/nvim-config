@@ -16,6 +16,7 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 vim.keymap.set("n", "<leader>d", '"_d')
 vim.keymap.set("v", "<leader>d", '"_d')
 
+-- WSL copy to Windows clipboard
 vim.keymap.set("v", "<leader>y", ':w !xclip -selection clipboard<CR><CR>')
 
 vim.keymap.set("n", "<leader>t", ':sp<CR><C-w>j:term<CR>:exe "resize " . (&lines / 4)<CR>i')
@@ -26,7 +27,7 @@ vim.keymap.set("n", "<leader>T", function()
 	feedkeys("clear<CR>", "n")
 end)
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
-vim.keymap.set("t", "<C-c>", "<C-\\><C-N>:q<CR>")
+vim.keymap.set("t", "<C-x>", "<C-\\><C-N>:q<CR>")
 
 vim.keymap.set("n", "<C-U>", "<C-U>zz")
 vim.keymap.set("n", "<C-D>", "<C-D>zz")
