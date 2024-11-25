@@ -90,6 +90,7 @@ if command -v apt &> /dev/null; then
     else
         echo "No missing packages to install."
         echo "You still may require to download dev tool for specific programming languages like the Java SDK."
+        echo "Also you need a nerdfont for the markdown render plugin to work."
     fi
 else
     echo "Cannot install missing packages because apt is not installed."
