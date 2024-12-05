@@ -26,6 +26,7 @@ return {
 					"pyright",
 					"gopls",
 					"jdtls",
+                    "lemminx"
 				},
 			})
 		end,
@@ -47,6 +48,10 @@ return {
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
 			})
+
+            lspconfig.lemminx.setup({
+                capabilities = capabilities,
+            })
 
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
