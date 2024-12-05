@@ -36,6 +36,7 @@ return {
 			vim.keymap.set("n", "<leader>dc", function()
 				dap.disconnect({ terminateDebuggee = true })
 			end)
+			vim.keymap.set("n", "<leader>dr", dap.repl.open)
 
 			-- dapui keymaps
 			vim.keymap.set({ "n", "v" }, "<leader>dh", function()
