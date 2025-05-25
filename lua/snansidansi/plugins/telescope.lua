@@ -17,7 +17,7 @@ return {
 							preview_cutoff = 0,
 						},
 					},
-					file_ignore_patterns = { "^target/" },
+					file_ignore_patterns = { "^target/", "node_modules/" },
 				},
 			})
 
