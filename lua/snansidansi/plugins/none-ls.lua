@@ -10,20 +10,20 @@ return {
 			local null_ls = require("null-ls")
 			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-            local lsp_formatting = function(bufnr)
-                vim.lsp.buf.format({
-                    filter = function(client)
-                        return client.name == "null-ls"
-                    end,
-                    bufnr = bufnr,
-                })
-            end
+			local lsp_formatting = function(bufnr)
+				vim.lsp.buf.format({
+					filter = function(client)
+						return client.name == "null-ls"
+					end,
+					bufnr = bufnr,
+				})
+			end
 
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.google_java_format,
-                    null_ls.builtins.formatting.prettier,
-                },
+			null_ls.setup({
+				sources = {
+					null_ls.builtins.formatting.google_java_format,
+					null_ls.builtins.formatting.prettier,
+				},
 
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
@@ -32,7 +32,7 @@ return {
 							group = augroup,
 							buffer = bufnr,
 							callback = function()
-                                lsp_formatting(bufnr)
+								lsp_formatting(bufnr)
 							end,
 						})
 					end
