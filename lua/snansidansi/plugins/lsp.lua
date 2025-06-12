@@ -29,6 +29,7 @@ return {
 					"lemminx",
 					"ts_ls",
 					"cssls",
+					"eslint",
 				},
 			})
 		end,
