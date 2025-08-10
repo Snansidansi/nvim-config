@@ -35,7 +35,7 @@ return {
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<C-p>"] = cmp.mapping.complete(),
+					-- ["<C-p>"] = cmp.mapping.complete(),
 					["<C-Space>"] = cmp.mapping.abort(),
 
 					["<Tab>"] = cmp.mapping(function(fallback)
