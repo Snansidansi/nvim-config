@@ -30,6 +30,7 @@ return {
 					"ts_ls",
 					"cssls",
 					"eslint",
+					"tailwindcss",
 				},
 			})
 		end,

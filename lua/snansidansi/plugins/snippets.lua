@@ -4,11 +4,22 @@ return {
 	},
 	{
 		"L3MON4D3/LuaSnip",
-
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
+	},
+	{
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		dependencies = {
+			"hrsh7th/nvim-cmp",
+		},
+
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({
+				color_square_width = 2,
+			})
+		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
@@ -18,11 +29,15 @@ return {
 			local luasnip = require("luasnip")
 			require("luasnip.loaders.from_vscode").lazy_load()
 
+			-- add html snippets to .tsx and .jsx files
 			luasnip.filetype_extend("typescriptreact", { "html" })
 			luasnip.filetype_extend("javascriptreact", { "html" })
 
 			cmp.setup({
-
+				formatting = {
+					-- add color prev to tailwind suggestions
+					format = require("tailwindcss-colorizer-cmp").formatter,
+				},
 				snippet = {
 					-- REQUIRED - you must specify a snippet engine
 					expand = function(args)
