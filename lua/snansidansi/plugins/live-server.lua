@@ -6,7 +6,6 @@ return {
         require("live-server").setup({
             args = { "--browser=explorer.exe" }
         })
-
     end,
 
     cmd = { "LiveServerStart", "LiveServerStop" },

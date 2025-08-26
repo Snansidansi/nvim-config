@@ -1,10 +1,10 @@
 return {
-	"mbbill/undotree",
+    "mbbill/undotree",
 
-	config = function()
-		--For windows
-		--vim.g.undotree_DiffCommand = "FC"
+    config = function()
+        --For windows
+        --vim.g.undotree_DiffCommand = "FC"
 
-		vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-	end,
+        vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+    end,
 }

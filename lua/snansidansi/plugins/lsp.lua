@@ -1,22 +1,22 @@
 return {
-	{
-		"williamboman/mason.nvim",
+    {
+        "williamboman/mason.nvim",
 
-		config = function()
-			require("mason").setup({
-				ui = {
-					icons = {
-						package_installed = "+",
-						package_pending = "~",
-						package_uninstalled = "x",
-					},
-					border = "rounded",
-				},
-			})
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("mason").setup({
+                ui = {
+                    icons = {
+                        package_installed = "+",
+                        package_pending = "~",
+                        package_uninstalled = "x",
+                    },
+                    border = "rounded",
+                },
+            })
+        end,
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
 
         config = function()
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -64,12 +64,11 @@ return {
                     end,
                 }
             })
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		config = function()
-
+        end,
+    },
+    {
+        "neovim/nvim-lspconfig",
+        config = function()
             -- Autoformat beim Speichern für alle LSP-Clients, die Formatierung anbieten
             vim.api.nvim_create_autocmd("BufWritePre", {
                 pattern = "*",
@@ -93,8 +92,8 @@ return {
     {
         "mfussenegger/nvim-jdtls",
 
-		dependencies = {
-			"mfussenegger/nvim-dap",
-		},
-	},
+        dependencies = {
+            "mfussenegger/nvim-dap",
+        },
+    },
 }
