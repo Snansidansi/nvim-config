@@ -1,5 +1,5 @@
 local function feedkeys(key, mode)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, false)
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, false)
 end
 
 vim.g.mapleader = " "
@@ -21,10 +21,10 @@ vim.keymap.set("v", "<leader>y", ":w !xclip -selection clipboard<CR><CR>")
 
 vim.keymap.set("n", "<leader>t", ':sp<CR><C-w>j:term<CR>:exe "resize " . (&lines / 4)<CR>i')
 vim.keymap.set("n", "<leader>T", function()
-    local bufferDir = vim.fn.expand("%:p:h")
-    feedkeys("<leader>t", "t")
-    feedkeys("cd " .. bufferDir .. "<CR>", "n")
-    feedkeys("clear<CR>", "n")
+	local bufferDir = vim.fn.expand("%:p:h")
+	feedkeys("<leader>t", "t")
+	feedkeys("cd " .. bufferDir .. "<CR>", "n")
+	feedkeys("clear<CR>", "n")
 end)
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
 vim.keymap.set("t", "<C-x>", "<C-\\><C-N>:q<CR>")
@@ -42,15 +42,15 @@ vim.keymap.set("n", "<leader>bW", "<cmd>setlocal nowrap<CR>")
 
 -- Resize window
 -- horizontal
-vim.keymap.set("n", "<leader>hw", "<cmd>horizontal resize +1<CR>")
-vim.keymap.set("n", "<leader>hs", "<cmd>horizontal resize -1<CR>")
+vim.keymap.set("n", "<leader>he", "<cmd>horizontal resize +1<CR>")
+vim.keymap.set("n", "<leader>hd", "<cmd>horizontal resize -1<CR>")
 
-vim.keymap.set("n", "<leader>hW", "<cmd>horizontal resize +10<CR>")
-vim.keymap.set("n", "<leader>hS", "<cmd>horizontal resize -10<CR>")
+vim.keymap.set("n", "<leader>hE", "<cmd>horizontal resize +10<CR>")
+vim.keymap.set("n", "<leader>hD", "<cmd>horizontal resize -10<CR>")
 
 -- vertical
-vim.keymap.set("n", "<leader>vw", "<cmd>vertical resize +1<CR>")
-vim.keymap.set("n", "<leader>vs", "<cmd>vertical resize -1<CR>")
+vim.keymap.set("n", "<leader>ve", "<cmd>vertical resize +1<CR>")
+vim.keymap.set("n", "<leader>vd", "<cmd>vertical resize -1<CR>")
 
-vim.keymap.set("n", "<leader>vW", "<cmd>vertical resize +10<CR>")
-vim.keymap.set("n", "<leader>vS", "<cmd>vertical resize -10<CR>")
+vim.keymap.set("n", "<leader>vE", "<cmd>vertical resize +10<CR>")
+vim.keymap.set("n", "<leader>vD", "<cmd>vertical resize -10<CR>")
