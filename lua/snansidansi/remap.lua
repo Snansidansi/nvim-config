@@ -17,7 +17,7 @@ vim.keymap.set("n", "<leader>d", '"_d')
 vim.keymap.set("v", "<leader>d", '"_d')
 
 -- WSL copy to Windows clipboard
-vim.keymap.set("v", "<leader>y", ':w !xclip -selection clipboard<CR><CR>')
+vim.keymap.set("v", "<leader>y", ":w !xclip -selection clipboard<CR><CR>")
 
 vim.keymap.set("n", "<leader>t", ':sp<CR><C-w>j:term<CR>:exe "resize " . (&lines / 4)<CR>i')
 vim.keymap.set("n", "<leader>T", function()
@@ -39,3 +39,18 @@ vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j")
 
 vim.keymap.set("n", "<leader>bw", "<cmd>setlocal wrap<CR>")
 vim.keymap.set("n", "<leader>bW", "<cmd>setlocal nowrap<CR>")
+
+-- Resize window
+-- horizontal
+vim.keymap.set("n", "<leader>hw", "<cmd>horizontal resize +1<CR>")
+vim.keymap.set("n", "<leader>hs", "<cmd>horizontal resize -1<CR>")
+
+vim.keymap.set("n", "<leader>hW", "<cmd>horizontal resize +10<CR>")
+vim.keymap.set("n", "<leader>hS", "<cmd>horizontal resize -10<CR>")
+
+-- vertical
+vim.keymap.set("n", "<leader>vw", "<cmd>vertical resize +1<CR>")
+vim.keymap.set("n", "<leader>vs", "<cmd>vertical resize -1<CR>")
+
+vim.keymap.set("n", "<leader>vW", "<cmd>vertical resize +10<CR>")
+vim.keymap.set("n", "<leader>vS", "<cmd>vertical resize -10<CR>")
