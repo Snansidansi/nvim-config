@@ -10,6 +10,14 @@ return {
                     statusline = 1000,
                 },
             },
+            sections = {
+                lualine_c = {
+                    {
+                        "filename",
+                        path = 1,
+                    },
+                },
+            },
         })
     end,
 }
