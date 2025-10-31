@@ -29,9 +29,6 @@ end)
 vim.keymap.set("t", "<Esc>", "<C-\\><C-N>")
 vim.keymap.set("t", "<C-x>", "<C-\\><C-N>:q<CR>")
 
-vim.keymap.set("n", "<C-U>", "<C-U>zz")
-vim.keymap.set("n", "<C-D>", "<C-D>zz")
-
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l")
@@ -39,6 +36,11 @@ vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j")
 
 vim.keymap.set("n", "<leader>bw", "<cmd>setlocal wrap<CR>")
 vim.keymap.set("n", "<leader>bW", "<cmd>setlocal nowrap<CR>")
+
+vim.keymap.set("n", "<leader>cc", "<cmd>cclose<CR>")
+vim.keymap.set("n", "<leader>co", "<cmd>copen<CR>zz")
+vim.keymap.set("n", "<leader>cn", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<leader>cp", "<cmd>cprevious<CR>zz")
 
 -- Resize window
 -- horizontal
