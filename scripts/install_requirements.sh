@@ -1,3 +1,5 @@
+#!/bin/bash
+
 declare -A requirements=(
     ["ripgrep"]="rg"
     ["python3"]=
