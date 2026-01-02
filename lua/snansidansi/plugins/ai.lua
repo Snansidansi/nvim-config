@@ -51,7 +51,7 @@ return {
                 gemini = function()
                     return require("codecompanion.adapters").extend("gemini", {
                         env = {
-                            GEMINI_API_KEY = "GEMINI-API-KEY",
+                            GEMINI_API_KEY = "GEMINI_API_KEY",
                         },
                     })
                 end,
@@ -64,6 +64,7 @@ return {
         vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionActions<cr>", { desc = "AI Actions" })
         vim.keymap.set({ "n", "v" }, "<leader>ai", "<cmd>CodeCompanion<cr>", { desc = "AI Inline Prompt" })
         vim.keymap.set({ "n", "v" }, "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "AI Chat Toggle" })
+        vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { desc = "Add selection to AI Chat" })
 
         vim.keymap.set("n", "<leader>Ai", function()
             local current_line = vim.api.nvim_get_current_line()
